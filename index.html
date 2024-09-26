@@ -10,7 +10,7 @@
 
 <body>
     <div id="editor">
-        <h4 style="text-align: center;margin-top: 30px;">本示例演示了一种独创的创建折叠面板的方法</h4>
+        <h4 style="text-align: center;margin-top: 30px;">本实例演示了另外一种创建折叠面板的方法</h4>
         <br>
         <div class="fold-wrap" style="                    
                     height:auto;
@@ -18,13 +18,12 @@
                     background:#f4f4f4;
                     transition:height 1s;
                     ">
-            <div class="fold-inner" style="padding-bottom: 14px;">
+            <div class="fold-inner">
                 <span class="fold-header" style="
                     display: flex;
                     justify-content: space-between;                    
                     border-bottom: 1px solid #ccc;                    
                     padding: 14px;                    
-                    margin-bottom: 14px;
                     background: #ecf0f1;
                     ">
                     <span class="fold-title" style="font-weight: bold;">折叠面板标题</span>
@@ -39,10 +38,14 @@
                     event.target.innerText = isCollapse ? '收起' : '展开';
                     event.target.parentNode.parentNode.parentNode.style.height = isCollapse ? 'auto' : '48px'">收起</span>
                 </span>
-                <span class="fold-content" style="
+                <p style="
                     padding-left: 14px;
                     padding-right: 14px;
-                    ">折叠面板内容</span>
+                    ">菜单栏倒数第二个是自定义的折叠菜单</p>
+                <p style="
+                    padding-left: 14px;
+                    padding-right: 14px;
+                    ">更多内容</p>
             </div>
         </div>
     </div>
@@ -79,7 +82,6 @@
                     justify-content: space-between;                    
                     border-bottom: 1px solid #ccc;                    
                     padding: 14px;                    
-                    margin-bottom: 14px;
                     background: #ecf0f1;
                     `
                 let foldButtonStyle = `
@@ -101,16 +103,18 @@
                 editor.cmd.do('insertHTML',
                     `<br>
                     <div class="fold-wrap" style="${foldWrapStyle}">
-                        <div class="fold-inner" style="padding-bottom: 14px;">
+                        <div class="fold-inner">
                             <span class="fold-header" style="${foldHeaderStyle}">
                                 <span class="fold-title" style="font-weight: bold;">折叠面板标题</span>
                                 <span class="fold-button" contenteditable="false" style="${foldButtonStyle}" onClick="${scripts}">收起</span>
-                            </span>                            
-                            <span class="fold-content" style="${foldContentStyle}" >折叠面板内容</span>
-                        </div>
+                            </span>   
+                            <p style="${foldContentStyle}">折叠面板内容</p>                         
+                            <p style="${foldContentStyle}">更多内容</p>                         
+                        </div>                           
                     </div>
                     <br>`)
             }
+            // <span class="fold-content" style="${foldContentStyle}">折叠面板内容</span>
             // 菜单是否被激活（如果不需要，这个函数可以空着）
             // 1. 激活是什么？光标放在一段加粗、下划线的文本时，菜单栏里的 B 和 U 被激活，如下图
             // 2. 什么时候执行这个函数？每次编辑器区域的选区变化（如鼠标操作、键盘操作等），都会触发各个菜单的 tryChangeActive 函数，重新计算菜单的激活状态
