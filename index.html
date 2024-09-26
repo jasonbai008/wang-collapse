@@ -19,29 +19,32 @@
                     transition:height 1s;
                     ">
             <div class="fold-inner">
-                <span class="fold-header" style="
+                <span class="fold-header" contenteditable="false" style="
                     display: flex;
                     justify-content: space-between;                    
                     border-bottom: 1px solid #ccc;                    
                     padding: 14px;                    
                     background: #ecf0f1;
                     ">
-                    <span class="fold-title" style="font-weight: bold;">折叠面板标题</span>
+                    <span class="fold-title" contenteditable="" style="font-weight: bold;">折叠面板标题</span>
                     <span class="fold-button" contenteditable="false" style="
                     border: none;
                     color: #333;
                     font-size: 14px;
                     cursor: pointer;
-                    "
-                        onclick="console.log(event.target);
+                    width: 18px;
+                    height: 18px;
+                    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKJJREFUOE/dk8sRwjAMRFedhBqoBcpw1AFJBVn7SAlQCzWQE22YUZjMyGBfyC06eqWnrwUbTTbGY2+AEMLRZpJSetRmo6qdvZOcV72Ygao+AXQ553OM8e4hfd+fROQGYCZ5aAEGABcTPcQFmzSSNL/FfragqgVkcfpkNhtIjr6y6ho9xDkXmZsVrMIXpBpcbcGXZxAReU3TdG1d7N4u8Z+f+QaocjoRxQA68AAAAABJRU5ErkJggg==');
+                    background-size: cover;
+                    " onclick="console.log(event.target);
                     let isCollapse = event.target.parentNode.parentNode.parentNode.style.height == '48px';
-                    event.target.innerText = isCollapse ? '收起' : '展开';
-                    event.target.parentNode.parentNode.parentNode.style.height = isCollapse ? 'auto' : '48px'">收起</span>
+                    event.target.style.transform = isCollapse ? 'rotate(0deg)' : 'rotate(-90deg)';
+                    event.target.parentNode.parentNode.parentNode.style.height = isCollapse ? 'auto' : '48px'"></span>
                 </span>
                 <p style="
                     padding-left: 14px;
                     padding-right: 14px;
-                    ">菜单栏倒数第二个是自定义的折叠菜单</p>
+                    ">折叠面板内容</p>
                 <p style="
                     padding-left: 14px;
                     padding-right: 14px;
@@ -89,6 +92,10 @@
                     color: #333;
                     font-size: 14px;
                     cursor: pointer;
+                    width: 18px;
+                    height: 18px;
+                    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKJJREFUOE/dk8sRwjAMRFedhBqoBcpw1AFJBVn7SAlQCzWQE22YUZjMyGBfyC06eqWnrwUbTTbGY2+AEMLRZpJSetRmo6qdvZOcV72Ygao+AXQ553OM8e4hfd+fROQGYCZ5aAEGABcTPcQFmzSSNL/FfragqgVkcfpkNhtIjr6y6ho9xDkXmZsVrMIXpBpcbcGXZxAReU3TdG1d7N4u8Z+f+QaocjoRxQA68AAAAABJRU5ErkJggg==');
+                    background-size: cover;
                     `
                 let foldContentStyle = `
                     padding-left: 14px;
@@ -96,7 +103,7 @@
                     `
                 let scripts = `console.log(event.target);
                     let isCollapse = event.target.parentNode.parentNode.parentNode.style.height == '48px';
-                    event.target.innerText = isCollapse ? '收起' : '展开';
+                    event.target.style.transform = isCollapse ? 'rotate(0deg)' : 'rotate(-90deg)';
                     event.target.parentNode.parentNode.parentNode.style.height = isCollapse ? 'auto' : '48px'`
 
                 // 整体上需要套两层包裹标签 
@@ -104,9 +111,9 @@
                     `<br>
                     <div class="fold-wrap" style="${foldWrapStyle}">
                         <div class="fold-inner">
-                            <span class="fold-header" style="${foldHeaderStyle}">
-                                <span class="fold-title" style="font-weight: bold;">折叠面板标题</span>
-                                <span class="fold-button" contenteditable="false" style="${foldButtonStyle}" onClick="${scripts}">收起</span>
+                            <span class="fold-header" contenteditable="false" style="${foldHeaderStyle}">
+                                <span class="fold-title" contenteditable style="font-weight: bold;">折叠面板标题</span>
+                                <span class="fold-button" contenteditable="false" style="${foldButtonStyle}" onClick="${scripts}"></span>
                             </span>   
                             <p style="${foldContentStyle}">折叠面板内容</p>                         
                             <p style="${foldContentStyle}">更多内容</p>                         
@@ -114,7 +121,6 @@
                     </div>
                     <br>`)
             }
-            // <span class="fold-content" style="${foldContentStyle}">折叠面板内容</span>
             // 菜单是否被激活（如果不需要，这个函数可以空着）
             // 1. 激活是什么？光标放在一段加粗、下划线的文本时，菜单栏里的 B 和 U 被激活，如下图
             // 2. 什么时候执行这个函数？每次编辑器区域的选区变化（如鼠标操作、键盘操作等），都会触发各个菜单的 tryChangeActive 函数，重新计算菜单的激活状态
