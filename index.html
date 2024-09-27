@@ -154,6 +154,13 @@
         editor.config.showMenuTooltips = true
         // 菜单栏提示为下标
         editor.config.menuTooltipPosition = 'down'
+
+        // 为富文本编辑器编辑区域绑定点击事件
+        editor.txt.eventHooks.clickEvents.push(click)
+
+        function click(e) {
+            console.log('第133行，收起展开的逻辑也可以写在这里，因为这里也可以拿到被点击的元素：e.target')
+        }
         editor.create();
     </script>
 </body>
