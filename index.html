@@ -11,7 +11,7 @@
 
 <body>
     <div id="editor">
-        <h4 style="text-align: center;margin-top: 30px;">本示例演示了一种行内onClick创建折叠面板的方法</h4>
+        <h4 style="text-align: center;margin-top: 30px;">本示例演示了一种 行内onClick 创建折叠面板的方法</h4>
         <br>
         <div class="fold-wrap" style="                    
                     height:auto;
@@ -40,6 +40,7 @@
                     height: 18px;
                     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKJJREFUOE/dk8sRwjAMRFedhBqoBcpw1AFJBVn7SAlQCzWQE22YUZjMyGBfyC06eqWnrwUbTTbGY2+AEMLRZpJSetRmo6qdvZOcV72Ygao+AXQ553OM8e4hfd+fROQGYCZ5aAEGABcTPcQFmzSSNL/FfragqgVkcfpkNhtIjr6y6ho9xDkXmZsVrMIXpBpcbcGXZxAReU3TdG1d7N4u8Z+f+QaocjoRxQA68AAAAABJRU5ErkJggg==');
                     background-size: cover;
+                    transition: transform 0.3s;
                     " onclick="console.log(event.target);
                     let isCollapse = event.target.parentNode.parentNode.parentNode.style.height == '48px';
                     event.target.style.transform = isCollapse ? 'rotate(0deg)' : 'rotate(-90deg)';
@@ -71,7 +72,7 @@
                 // data-title属性表示当鼠标悬停在该按钮上时提示该按钮的功能简述
                 const $elem = E.$(
                     `<div class="w-e-menu" data-title="折叠面板">
-                        <svg t="1727335923739" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7434" width="16" height="16"><path d="M0 112h1024V16H0v96z m0 448h576v-96H0v96z m576 448H0v-96h576v96zM832 384l-192 256h384l-192-256z" fill="#707070" p-id="7435"></path></svg>
+                        <svg t="1727419813082" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3300" width="20" height="20"><path d="M928 128h-832c-38.4 0-64 25.6-64 64v128c0 38.4 25.6 64 64 64h832c38.4 0 64-25.6 64-64V192c0-38.4-25.6-64-64-64z m0 192h-832V192h832v128zM857.6 524.8l96 96c12.8 12.8 12.8 32 0 44.8-12.8 12.8-32 12.8-44.8 0l-38.4-38.4v243.2c0 19.2-12.8 32-32 32s-32-12.8-32-32V627.2l-38.4 38.4c-12.8 12.8-32 12.8-44.8 0-12.8-12.8-12.8-32 0-44.8l96-96c6.4 0 12.8-6.4 19.2-6.4s12.8 0 19.2 6.4zM32 544c0-19.2 12.8-32 32-32h512c19.2 0 32 12.8 32 32S595.2 576 576 576H64c-19.2 0-32-12.8-32-32zM576 672H64c-19.2 0-32 12.8-32 32s12.8 32 32 32h512c19.2 0 32-12.8 32-32s-12.8-32-32-32zM576 832H64c-19.2 0-32 12.8-32 32s12.8 32 32 32h512c19.2 0 32-12.8 32-32S595.2 832 576 832z" p-id="3301" fill="#707070"></path></svg>
                     </div>`
                 )
                 super($elem, editor)
@@ -106,6 +107,7 @@
                     height: 18px;
                     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKJJREFUOE/dk8sRwjAMRFedhBqoBcpw1AFJBVn7SAlQCzWQE22YUZjMyGBfyC06eqWnrwUbTTbGY2+AEMLRZpJSetRmo6qdvZOcV72Ygao+AXQ553OM8e4hfd+fROQGYCZ5aAEGABcTPcQFmzSSNL/FfragqgVkcfpkNhtIjr6y6ho9xDkXmZsVrMIXpBpcbcGXZxAReU3TdG1d7N4u8Z+f+QaocjoRxQA68AAAAABJRU5ErkJggg==');
                     background-size: cover;
+                    transition: transform 0.3s;
                     `
                 let foldContentStyle = `
                     padding-left: 14px;
