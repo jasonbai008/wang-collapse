@@ -26,8 +26,11 @@
                     padding: 14px;                    
                     background: #ecf0f1;
                     ">
-                    <span class="fold-title" contenteditable="" style="font-weight: bold;">折叠面板标题</span>
-                    <span class="fold-button" contenteditable="false" style="
+                    <span class="fold-title" contenteditable="" style="
+                    font-weight: bold;
+                    outline: none;
+                    ">折叠面板标题</span>
+                    <span class="fold-button" style="
                     border: none;
                     color: #333;
                     font-size: 14px;
@@ -46,9 +49,11 @@
                     padding-right: 14px;
                     ">折叠面板内容</p>
                 <p style="
-                    padding-left: 14px;
-                    padding-right: 14px;
-                    ">更多内容</p>
+                padding-left: 14px;
+                padding-right: 14px;
+                ">实现逻辑：<a target="_blank"
+                        href="https://github.com/jasonbai008/wang-collapse/blob/main/index.html">https://github.com/jasonbai008/wang-collapse/blob/main/index.html</a>
+                </p>
             </div>
         </div>
     </div>
@@ -87,6 +92,10 @@
                     padding: 14px;                    
                     background: #ecf0f1;
                     `
+                let foldTitleStyle = `
+                    font-weight: bold;
+                    outline: none;
+                    `
                 let foldButtonStyle = `
                     border: none;
                     color: #333;
@@ -112,8 +121,8 @@
                     <div class="fold-wrap" style="${foldWrapStyle}">
                         <div class="fold-inner">
                             <span class="fold-header" contenteditable="false" style="${foldHeaderStyle}">
-                                <span class="fold-title" contenteditable style="font-weight: bold;">折叠面板标题</span>
-                                <span class="fold-button" contenteditable="false" style="${foldButtonStyle}" onClick="${scripts}"></span>
+                                <span class="fold-title" contenteditable style="${foldTitleStyle}">折叠面板标题</span>
+                                <span class="fold-button" style="${foldButtonStyle}" onClick="${scripts}"></span>
                             </span>   
                             <p style="${foldContentStyle}">折叠面板内容</p>                         
                             <p style="${foldContentStyle}">更多内容</p>                         
